@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First web app</title>
+</head>
+
+
+
+<body style="background-color:lightskyblue;">
+
+<h1 style="color:red;"> Welcome to GameStop!</h1>
+<h1>Power to the gamers</h1>
+<h2><i>HOLD GME!</i></h2>
+
+<h1 style="color:rebeccapurple"> Manage Users</h1>
+
+
+
+
+
+
+<form name="addPersonForm" th:action="@{/addPerson}" method="POST">
+
+    <b>NAME:</b>
+    <input type="text" id="name" name="name">
+    <b>EMAIL:</b>
+    <input type="text" id="email" name="email" th:value="${email}">
+    <b>PASSWORD:</b>
+    <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password"
+           required="required">
+
+    <button type="submit">Add person</button>
+
+
+
+</form>
+
+
+<form name="updatePersonForm"  th:action="@{/updatePerson}" method="POST">
+
+    <b>NAME:</b>
+    <input type="text" id="name1" name="name">
+    <b>EMAIL:</b>
+    <input type="text" id="email1" name="email" th:value="${email}">
+
+    <button type="submit">Update Person</button>
+
+
+
+</form>
+
+<form name ="deletePersonForm" th:action="@{/deletePerson}" method="Post">
+
+    <input type="text"  name="email" th:value="${email}">
+
+    <button type="submit">Delete Person</button>
+
+
+</form>
+
+
+</form>
+
+<form name ="showForm" th:action="@{/showPersons}" method="Get">
+
+
+
+    <button type="submit">Show People</button>
+
+
+</form>
+
+
+
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
+
+
+
+
+</body>
+</html>

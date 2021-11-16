@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GameStop Profile</title>
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Email </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${users.empty}">
+        <td colspan="2"> No Products Available </td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td><span th:text="${user.name}"> Name </span></td>
+        <td><span th:text="${user.email}"> Email </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First web app</title>
+</head>
+
+
+
+<body style="background-color:lightskyblue;">
+
+<h1 style="color:red;"> Welcome to GameStop!</h1>
+<h1>Power to the gamers</h1>
+<h2><i>HOLD GME!</i></h2>
+
+<h1 style="color:rebeccapurple"> Products Center</h1>
+
+
+
+<form name="addProductForm" th:action="@{/addProduct}" method="POST">
+
+    <b>NAME:</b>
+    <input type="text" id="name" name="productName" >
+    <b>PRICE:</b>
+    <input type="text" id="price" name="price" >
+
+    <button type="submit">Add product</button>
+
+
+
+</form>
+
+
+<form name="updatePersonForm"  th:action="@{/updateProduct}" method="POST">
+
+    <b>NAME:</b>
+    <input type="text" id="name1" name="productName">
+    <b>PRICE:</b>
+    <input type="text" id="email1" name="price">
+
+    <button type="submit">Update Product</button>
+
+
+
+</form>
+
+<form name ="deletePersonForm" th:action="@{/deleteProduct}" method="Post">
+
+    <input type="text"  name="productName" >
+
+    <button type="submit">Delete Product</button>
+
+
+</form>
+
+
+</form>
+
+
+
+<form name ="showForm" th:action="@{/showProducts}" method="Get">
+
+
+
+    <button type="submit">Show Products</button>
+
+
+</form>
+
+
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
+
+
+
+</body>
+
+</html>

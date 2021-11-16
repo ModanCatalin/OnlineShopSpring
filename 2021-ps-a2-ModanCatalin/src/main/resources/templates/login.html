@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+
+        body {
+            color: #4e4e4e;
+            background: #e2e2e2;
+            font-family: 'Roboto', sans-serif;
+        }
+        .form-control {
+            font-size: 16px;
+            background: #f2f2f2;
+            box-shadow: none !important;
+            border-color: transparent;
+        }
+        .form-control:focus {
+            border-color: #d3d3d3;
+        }
+        .form-control, .btn {
+            border-radius: 2px;
+        }
+        .login-form {
+            width: 380px;
+            margin: 0 auto;
+        }
+        .login-form h2 {
+            margin: 0;
+            padding: 30px 0;
+            font-size: 34px;
+        }
+        .login-form .avatar {
+            margin: 0 auto 30px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            z-index: 9;
+            background: #ef3b3a;
+            padding: 15px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        .login-form .avatar img {
+            width: 100%;
+        }
+        .login-form form {
+            color: #7a7a7a;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background: #fff;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+        .login-form .btn {
+            font-weight: bold;
+            background: #ef3b3a;
+            border: none;
+            margin-bottom: 20px;
+        }
+        .login-form .btn:hover, .login-form .btn:focus {
+            background: #ed2121;
+            outline: none !important;
+        }
+        .login-form a {
+            color: #ef3b3a;
+        }
+        .login-form form a {
+            color: #ef3b3a;
+        }
+        .login-form a:hover, .login-form form a:hover {
+            text-decoration: underline;
+        }
+        .hint-text {
+            color: #999;
+            text-align: center;
+        }
+        .form-footer {
+            padding-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-form">
+    <h2 class="text-center">Please enter your credentials</h2>
+    <form name="login" th:action="@{/login}" method="POST">
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                Invalid username or password.
+            </div>
+        </div>
+        <div class="avatar">
+            <img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control input-lg" id="username" name="username" placeholder="Username"
+                   required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password"
+                   required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign in</button>
+        </div>
+        <p class="hint-text">Don't have an account? <a href="/register">Sign up here</a></p>
+    </form>
+</div>
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+    /* BASIC */
+
+    html {
+        background-color: #56baed;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+    }
+
+    a {
+        color: #92badd;
+        display:inline-block;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        display:inline-block;
+        margin: 40px 8px 10px 8px;
+        color: #cccccc;
+    }
+
+
+
+    /* STRUCTURE */
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+    }
+
+    #formContent {
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 450px;
+        position: relative;
+        padding: 0px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        text-align: center;
+    }
+
+    #formFooter {
+        background-color: #f6f6f6;
+        border-top: 1px solid #dce8f1;
+        padding: 25px;
+        text-align: center;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+    }
+
+
+
+    /* TABS */
+
+    h2.inactive {
+        color: #cccccc;
+    }
+
+    h2.active {
+        color: #0d0d0d;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+
+
+    /* FORM TYPOGRAPHY*/
+
+    input[type=button], input[type=submit], input[type=reset]  {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+        background-color: #39ace7;
+    }
+
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+
+    input[type=text] {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=text]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=text]::placeholder {
+        color: #cccccc;
+    }
+
+
+
+    /* ANIMATIONS */
+
+    /* Simple CSS3 Fade-in-down Animation */
+    .fadeInDown {
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    .fadeIn {
+        opacity:0;
+        -webkit-animation:fadeIn ease-in 1;
+        -moz-animation:fadeIn ease-in 1;
+        animation:fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode:forwards;
+        -moz-animation-fill-mode:forwards;
+        animation-fill-mode:forwards;
+
+        -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+        animation-duration:1s;
+    }
+
+    .fadeIn.first {
+        -webkit-animation-delay: 0.4s;
+        -moz-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    .fadeIn.second {
+        -webkit-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+    }
+
+    .fadeIn.third {
+        -webkit-animation-delay: 0.8s;
+        -moz-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+    }
+
+    .fadeIn.fourth {
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    .underlineHover:after {
+        display: block;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 2px;
+        background-color: #56baed;
+        content: "";
+        transition: width 0.2s;
+    }
+
+    .underlineHover:hover {
+        color: #0d0d0d;
+    }
+
+    .underlineHover:hover:after{
+        width: 100%;
+    }
+
+
+    /* OTHERS */
+
+    *:focus {
+        outline: none;
+    }
+
+    #icon {
+        width:60%;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+</style>
+
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+            <h2 class="active"> Sign In </h2>
+            <h2 class="inactive underlineHover">Sign Up </h2>
+
+
+            <div class="fadeIn first">
+                <img src="data:image/png;base64,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" id="icon" alt="User Icon" />
+            </div>
+
+
+            <form>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+
+
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+
+
+
+</html>
+
+
+-->
